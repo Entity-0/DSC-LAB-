@@ -1,0 +1,60 @@
+import sys
+
+
+
+def push(stack,top,max):
+    if(top<0):
+        print("OVERFLOW")
+        sys.exit(0)
+
+    print("Enter the value to push into stack: ")
+    t= int(input(""))
+    stack[top]=t
+    top-=1
+    return top
+
+
+
+
+
+def pop(stack,top,max):
+    top+=1
+    if(top==max):
+        print("Underflow")
+        sys.exit(1)
+
+    print("The top element", stack[top], "is being removed")
+    stack[top]=0
+    return top
+
+
+
+
+
+max=int(input("Enter the max size of stack:"))
+stack=[0]*max
+top=max-1
+top= push(stack,top,max)
+
+
+print("The stack now:")
+for i in range(0,max):
+    print(stack[i])
+
+
+top= push(stack,top,max)
+
+
+
+print("The stack now:")
+for i in range(0,max):
+    print(stack[i])
+
+    
+top=pop(stack,top,max)
+top=pop(stack,top,max)
+top=pop(stack,top,max)
+
+print("The stack now:")
+for i in range(0,max):
+    print(stack[i])
